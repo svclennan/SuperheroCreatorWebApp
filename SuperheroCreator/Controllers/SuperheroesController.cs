@@ -40,7 +40,7 @@ namespace SuperheroCreator.Controllers
         // POST: Superheroes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind ("Name")]Superhero superhero)
+        public ActionResult Create([Bind ("Name,AlterEgo,CatchPhrase,PrimaryAbility,SecondaryAbility")]Superhero superhero)
         {
             try
             {
@@ -79,8 +79,8 @@ namespace SuperheroCreator.Controllers
                 {
                     var hero = _context.Superheroes.Where(a => a.Id == id).SingleOrDefault();
                     hero.Name = superhero.Name;
-                    hero.PrimarySuperHeroAbility = superhero.PrimarySuperHeroAbility;
-                    hero.SecondarySuperHeroAbility = superhero.SecondarySuperHeroAbility;
+                    hero.PrimaryAbility = superhero.PrimaryAbility;
+                    hero.SecondaryAbility = superhero.SecondaryAbility;
                     hero.CatchPhrase = superhero.CatchPhrase;
                     hero.AlterEgo = superhero.AlterEgo;
                     _context.SaveChanges();

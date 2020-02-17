@@ -10,11 +10,11 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" class="was-validated">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" required/>
+                <input asp-for="Name" type="text" class="form-control is-invalid" id="Name" placeholder="Name" required />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -23,14 +23,14 @@
                 <span asp-validation-for="AlterEgo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PrimarySuperHeroAbility" class="control-label"></label>
-                <input asp-for="PrimarySuperHeroAbility" class="form-control" />
-                <span asp-validation-for="PrimarySuperHeroAbility" class="text-danger"></span>
+                <label asp-for="PrimaryAbility" class="control-label"></label>
+                <input asp-for="PrimaryAbility" class="form-control" />
+                <span asp-validation-for="PrimaryAbility" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SecondarySuperHeroAbility" class="control-label"></label>
-                <input asp-for="SecondarySuperHeroAbility" class="form-control" />
-                <span asp-validation-for="SecondarySuperHeroAbility" class="text-danger"></span>
+                <label asp-for="SecondaryAbility" class="control-label"></label>
+                <input asp-for="SecondaryAbility" class="form-control" />
+                <span asp-validation-for="SecondaryAbility" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CatchPhrase" class="control-label"></label>

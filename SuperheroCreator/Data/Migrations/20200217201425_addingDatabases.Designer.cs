@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SuperheroCreator.Data;
 
 namespace SuperheroCreator.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200217201425_addingDatabases")]
+    partial class addingDatabases
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -265,13 +267,17 @@ namespace SuperheroCreator.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PrimaryAbility")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PrimaryAbilityId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("SecondaryAbility")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("SecondaryAbilityId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PrimaryAbilityId");
+
+                    b.HasIndex("SecondaryAbilityId");
 
                     b.ToTable("Superheroes");
                 });
@@ -323,6 +329,21 @@ namespace SuperheroCreator.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SuperheroCreator.Models.Superhero", b =>
+                {
+                    b.HasOne("SuperheroCreator.Models.PrimaryAbility", "PrimarySuperHeroAbility")
+                        .WithMany()
+                        .HasForeignKey("PrimaryAbilityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SuperheroCreator.Models.SecondaryAbility", "SecondarySuperHeroAbility")
+                        .WithMany()
+                        .HasForeignKey("SecondaryAbilityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

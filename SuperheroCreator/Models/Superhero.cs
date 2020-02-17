@@ -14,14 +14,16 @@ namespace SuperheroCreator.Models
         public string Name { get; set; }
         public string AlterEgo { get; set; }
         public string CatchPhrase { get; set; }
+        public string PrimaryAbility { get; set; }
+        public string SecondaryAbility { get; set; }
 
-        [ForeignKey("PrimaryAbility")]
-        public int PrimaryAbilityId { get; set; }
-        public PrimaryAbility PrimarySuperHeroAbility { get; set; }
+        //[ForeignKey("PrimarySuperHeroAbility")]
+        //public int PrimaryAbilityId { get; set; }
+        //public PrimaryAbility PrimarySuperHeroAbility { get; set; }
 
-        [ForeignKey("SecondaryAbility")]
-        public int SecondaryAbilityId { get; set; }
-        public SecondaryAbility SecondarySuperHeroAbility { get; set; }
+        //[ForeignKey("SecondarySuperHeroAbility")]
+        //public int SecondaryAbilityId { get; set; }
+        //public SecondaryAbility SecondarySuperHeroAbility { get; set; }
         
     }
 }

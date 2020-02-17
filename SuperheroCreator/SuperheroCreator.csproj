@@ -5,6 +5,13 @@
     <UserSecretsId>aspnet-SuperheroCreator-C1C689CD-2244-44B8-8E3B-7D8DC44406EF</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20200217200303_PrimarySecondaryAbilities.cs" />
+    <Compile Remove="Data\Migrations\20200217200303_PrimarySecondaryAbilities.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200217201149_AbilitiesTables.cs" />
+    <Compile Remove="Data\Migrations\20200217201149_AbilitiesTables.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.1" />
