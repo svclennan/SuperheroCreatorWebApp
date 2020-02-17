@@ -40,7 +40,7 @@ namespace SuperheroCreator.Controllers
         // POST: Superheroes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Superhero superhero)
+        public ActionResult Create([Bind ("Name")]Superhero superhero)
         {
             try
             {
